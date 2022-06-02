@@ -1,0 +1,106 @@
+{% extends 'base.html'%}
+
+{% block title %} Tarefas {% endblock%}
+
+{% block content%}
+
+<main class="principal">
+
+<br>
+
+<div class="offset-1 col-10 list-div principal">
+
+    <h1>Lista de Controle</h1>
+
+    <a href="cadastroControle" class="branco">
+        <div class="col-3 add-div">
+            <i class="fas fa-plus"></i>Cadastrar
+        </div>
+    </a>
+    <div class="col-8 search-div">
+        <form method="GET" id="search-form">
+        <input class="form-control" type="text" name="search" id="search" placeholder="Busque pelo nome do Motorista" value="{{request.GET.search}}">
+        <i class="fas fa-search" id="search-btn"></i>
+    </form>
+    </div>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %}class="alert alert -{{message.tags}}" {% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Motorista</th>
+            <th scope="col">Veiculo</th>
+            <th scope="col">Data Saida</th>
+            <th scope="col">Horario Saida</th>
+            <th scope="col">KM Saida</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Data Retorno</th>
+            <th scope="col">Hoario Retorno</th>
+            <th scope="col">KM Retorno</th>
+            <th scope="col">KM Percorrido</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for controle in controle %}
+          <tr>
+            <td>{{controle.motorista}}</td>
+            <td>{{controle.veiculo}}</td>
+            <td>{{controle.data_saida}}</td>
+            <td>{{controle.hora_saida}}</td>
+            <td>{{controle.km_saida}}</td>
+            <td>{{controle.destino}}</td>
+            <td>{{controle.data_retorno}}</td>
+            <td>{{controle.hora_retorno}}</td>
+            <td>{{controle.km_retorno}}</td>
+            <td>{{controle.km_percorrido}}</td>
+            <td>
+                <a href="deleteControle/{{controle.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
+            </td>
+            <td>
+                <a href="editControle/{{controle.id}}"><span><i class="fas fa-edit"></i></span></a>
+            </td>
+          </tr>
+          
+         
+          
+          {% endfor %}
+          
+        </tbody>
+        
+      </table>
+      
+   
+
+    <div class="pagination">
+        <span class="step-links">
+            
+            {% if controle.has_previous %}
+                <a href="?page={{ controle.previous_page_number }}"><li class="fas fa-arrow-left"></li></a>
+            {% endif %}
+
+            <span class="current">
+               Pagina {{controle.number}} de {{controle.paginator.num_pages}}
+
+            </span>
+
+            {% if controle.has_next %}
+            <a href="?page={{ controle.next_page_number }}"><li class="fas fa-arrow-right"></li></a>
+            {% endif %}
+        </span>
+    </div>
+
+</div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,123 @@
+a{
+  color:white;
+  text-decoration: none;
+  transition: 0.3s;
+ 
+}
+a:hover {
+  
+   color: #6ab8ee;
+}
+.apresentacao {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  
+}
+
+nav {
+  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  background: #212529;
+  height: 8vh;
+}
+.lista-navegacao{
+  list-style: none;
+  display: flex;
+}
+.lista-navegacao li{
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+.menu-mobile div{
+width: 32px;
+height: 2px;
+background: white;
+margin: 8px;
+transition: 0.3s;
+}
+.menu-mobile{
+cursor: pointer;
+display: none;
+}
+
+
+@media (max-width: 999px) {
+    body {
+      overflow-x: hidden;
+    }
+   
+    .controle-heigh{
+      height: 170vh;
+    }
+    .box{
+      position: absolute;
+      top: 55%;
+      width: 70%;
+      padding: 25px;
+      
+    }
+    .box-controle{
+    position: absolute;
+    top: 100%;
+    width: 70%;
+   
+    
+  }
+    
+    .lista-navegacao {
+      z-index: 1000;
+      position: fixed;
+      top: 0vh;
+      right: 0;
+      width: 50vw;
+      height: 100vh;
+      background: #212529;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+    }
+    .lista-navegacao li {
+      opacity: 0;
+      margin-left: 0;
+    
+
+      
+    }
+    .menu-mobile{
+      display: block;
+      
+      
+    }
+  }
+  .lista-navegacao.active{
+    transform: translateX(0);
+  }
+
+
+  @keyframes navLinkFade {
+    from{
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .menu-mobile.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+    
+  }
+  .menu-mobile.active .line2{
+    opacity: 0;
+  }
+  .menu-mobile.active .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
+  }

@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+
+  main {
+    background-color: #70d7f6;
+    /* background-image: linear-gradient(to right, #6ab8ee, #007bff ); */
+    background-size: cover;
+    height: 100vh;
+    
+  }
+ .controle-heigh{
+
+    height: 150vh;
+    background-color: #70d7f6;
+    
+  }
+  main.principal{
+    background-color: azure;
+    color: black;
+  }
+  main.principal a{
+    color: black;
+  }
+  main.principal a :hover{
+    color: #0CBCF0;
+  }
+
+  .box{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(33, 37, 41, 1);
+    /* background-image: linear-gradient(to right, #010bff, #0CBCF0 ); */
+    padding: 15px;
+    border-radius: 25px;
+    width: 25%;
+    color: azure;
+    align-items: center;
+    
+  }
+
+  .box-controle{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(33, 37, 41, 1);
+    /* background-image: linear-gradient(to right, #010bff, #0CBCF0 ); */
+    padding: 15px;
+    border-radius: 25px;
+    width: 30%;
+    color: azure;
+    align-items: center;
+    
+  }
+  
+  fieldset{
+    border: 5px solid #0CBCF0;
+    padding: 10px;
+    
+  }
+   legend{
+    border: 5px solid #0CBCF0;
+    padding: 10px;
+    text-align: center;
+    background-color: #0CBCF0;
+    border-radius: 25px;
+    color: azure  ;
+  }
+
+.inputBox{
+  position: relative;
+}
+input{
+  width: 100%; 
+}
+select{
+  width: 100%; 
+}
+.inputForm{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  width: 100%; 
+  color: azure;
+}
+#submit{
+    background-color: #0CBCF0;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: azure;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
+/* listagem */
+
+.list-div{
+  padding: 0;
+}
+
+.task-list{
+  padding-left: 0;
+}
+
+.task-item{
+  list-style: none;
+  font-size: 20px;
+  height: 50px;
+  padding-top: 10px;
+  border: 1px dashed black;
+}
+
+.fas.fa-trash, .fas.fa-edit{
+  cursor: pointer;
+  margin: 5px;
+  font-size: 20px;
+  float: right;
+}
+.fas.fa-trash{
+  color: #ff0303;
+}
+.fas.fa-edit{
+  color: #03fc14;
+}
+/* listagem*/
+
+/* botão cadastrar */
+.add-div{
+  background-color: #0CBCF0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px;
+  border-radius: 5px;
+  margin-right: 25px;
+}
+main.principal a.branco :hover{
+  color: azure;
+}
+.fas.fa-plus{
+  color:azure;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+/* botão cadastrar */
+
+/* busca */
+.fas.fa-search{
+  position: absolute;
+  top: 155px;
+  left: 1025px;
+  cursor: pointer;
+}
+
+.search-div{
+  padding: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+/* busca */
+
+ul.messages{
+  padding:0;
+
+}
+ul.messages li {
+  list-style: none;
+  background-color:#dc3545;
+  color: azure;
+}
+
+/* pagination */
+
+.step-links{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.step-links .current{
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block title %} Tarefas {% endblock%}
+
+{% block content%}
+
+<main>
+
+<div class="box">
+    <form method="POST">
+
+        
+        <fieldset>
+            <legend><b>Edição do Veículo</b></legend>
+            <br>
+            <div class="iputBox">
+                {% csrf_token %}
+                {{form.as_p}}
+            </div>
+            
+            <input type="submit" name="submit" id="submit">
+        </fieldset>
+    </form>
+</div>
+
+</main>
+{% endblock %}
