@@ -7,3 +7,5 @@ Dentro do diretorio Principal:
 -> source venvprojeto-teste-python-agsistemas/Scripts/activate 
 -> pip install django 
 -> django-admin startproject projeto
+
+É necessario criar um banco dados MySQL chamado dblocadora
