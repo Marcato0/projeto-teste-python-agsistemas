@@ -6,22 +6,35 @@
 
 <main class="controle-heigh">
 
-<div class=" box-controle">
-    <form method="POST">
+    <br>
 
-        
-        <fieldset>
-            <legend><b>Controle</b></legend>
-            <br>
-            <div class="iputBox">
-                {% csrf_token %}
-                {{form.as_p}}
-            </div>
-            
-            <input type="submit" name="submit" id="submit">
-        </fieldset>
-    </form>
-</div>
+    <div class="container maximo">
+
+        <div class="">
+
+            <form method="POST">
+
+                <fieldset>
+                    <legend><b>Controle</b></legend>
+                    <br>
+                    <div class="iputBox">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                    </div>
+                    <div class="centro">
+
+                        <button type="submit" class="btn botao_azul centro">Cadastrar</button>
+                    </div>
+
+                </fieldset>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <br>
 
 </main>
 

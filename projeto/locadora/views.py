@@ -140,7 +140,7 @@ def newControle(request):
 
         if formulario_do_controle.is_valid():
             controle = formulario_do_controle.save(commit='True')
-            return redirect ('/cadastroControle')
+            return redirect ('/')
 
     else:
         formulario_do_controle = ControleForm()
@@ -150,7 +150,7 @@ def controleList(request):
 
     search = request.GET.get('search')
     if search:
-        controle = Controle.objects.filter(motorista__icontains=search)
+        controle = Controle.objects.filter( data_saida__icontains=search)
         
 
     else:

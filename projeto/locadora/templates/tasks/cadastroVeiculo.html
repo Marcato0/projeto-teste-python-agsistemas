@@ -4,24 +4,43 @@
 
 {% block content%}
 
-<main >
+<main>
 
-<div class="box">
-    <form method="POST">
+    <br>
+    <div class="container maximo">
 
-        
-        <fieldset>
-            <legend><b>Cadastro de Veículos</b></legend>
-            <br>
-            <div class="iputBox">
-                {% csrf_token %}
-                {{form.as_p}}
-            </div>
-            
-            <input type="submit" name="submit" id="submit">
-        </fieldset>
-    </form>
-</div>
+        <div class="">
+
+            <form method="POST">
+
+                <fieldset>
+                    <legend><b>Cadastro de Veículos</b></legend>
+                    <br>
+                    <div class="iputBox">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                    </div>
+                    <div class="centro">
+
+                        <button type="submit" class="btn botao_azul centro">Cadastrar</button>
+                    </div>
+
+                </fieldset>
+
+            </form>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
 
 </main>
 

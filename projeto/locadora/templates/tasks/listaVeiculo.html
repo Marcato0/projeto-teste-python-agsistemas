@@ -4,106 +4,121 @@
 
 {% block content%}
 
-<main class="principal">
+<main>
 
-<br>
+    <br>
 
-<div class="offset-1 col-10 list-div principal">
+    <div class="container">
 
-    <h1>Lista de Veiculos</h1>
+        <div class="row">
+            <h1>Lista de Veiculos</h1>
+            <div class="col-3 col-md-1">
 
-    <a href="cadastroVeiculo" class="branco">
-        <div class="col-3 add-div">
-            <i class="fas fa-plus"></i>Cadastrar Veiculo
+
+                <a href="cadastroVeiculo">
+                    <div>
+                        <button type="button" class="btn botao_azul">
+                            Cadastrar
+                        </button>
+                    </div>
+                </a>
+
+            </div>
+
+
+            <div class="col-9 col-md-11">
+                <form method="GET" id="search-form" class="d-flex">
+
+                    <input class="form-control me-2" type="text" name="search" id="search"
+                        placeholder="Busque pela Placa" value="{{request.GET.search}}">
+
+                    <button class="btn botao_azul" type="submit">
+                        <i class="fas fa-search" id="search-btn"></i>
+                    </button>
+                </form>
+            </div>
+
         </div>
-    </a>
 
-    <div class="col-8 search-div">
-        <form method="GET" id="search-form">
-        <input class="form-control" type="text" name="search" id="search" placeholder="Busque pela Placa" value="{{request.GET.search}}">
-        <i class="fas fa-search" id="search-btn"></i>
-    </form>
     </div>
+    <br>
 
-    {% if messages %}
-        <ul class="messages">
+    <div class="offset-1 col-10 ">
+
+
+
+        {% if messages %}
+        <ul class="list-group">
             {% for message in messages %}
-                <li {% if message.tags %}class="alert alert -{{message.tags}}" {% endif %}>{{message}}</li>
+            <li class="list-group-item list-group-item-danger" {% if message.tags %}class="alert alert -{{message.tags}}" {% endif %}>{{message}}</li>
             {% endfor %}
         </ul>
-    {% endif %}
+        {% endif %}
 
 
-
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Código</th>
-            <th scope="col">Placa</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Veiculo</th>
-            <th scope="col">Troca de Oleo</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for veiculos in veiculos %}
-          <tr>
-            <td>{{veiculos.id}}</td>
-            <td>{{veiculos.placa}}</td>
-            <td>{{veiculos.marca}}</td>
-            <td>{{veiculos.veiculo}}</td>
-            <td>Trocar Oleo no KM {{veiculos.troca_oleo}}</td>
-            <td>
-                <a href="deleteVeiculo/{{veiculos.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
-            </td>
-            <td>
-                <a href="editVeiculo/{{veiculos.id}}"><span><i class="fas fa-edit"></i></span></a>
-            </td>
-          </tr>
-         
-          
-          {% endfor %}
-          
-        </tbody>
         
-      </table>
+        <div class="table-responsive">
+        <table class="table">
 
-    <!-- <ul class="task-list">
-        {% for veiculos in veiculos %}
-        <li class="task-item">
-            
-            <span>
-            <span>{{veiculos.placa}}</span>
-            <span> {{veiculos.marca}}</span>
-            <span> {{veiculos.veiculo}}</span>
-        </span>
-        
-            <a href="deleteVeiculo/{{veiculos.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
-            <a href="editVeiculo/{{veiculos.id}}"><span><i class="fas fa-edit"></i></span></a>
-        
-        </li>
-        {% endfor %}
-    </ul> -->
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Veiculo</th>
+                    <th scope="col">Troca de Oleo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for veiculos in veiculos %}
+                <tr>
+                    <td>{{veiculos.id}}</td>
+                    <td>{{veiculos.placa}}</td>
+                    <td>{{veiculos.marca}}</td>
+                    <td>{{veiculos.veiculo}}</td>
+                    <td>Trocar Oleo no KM {{veiculos.troca_oleo}}</td>
+                    <td>
+                        <a href="deleteVeiculo/{{veiculos.id}}" class="delete-btn"><span><i
+                                    class="fas fa-trash deletar"></i></span></a>
+                    </td>
+                    <td>
+                        <a href="editVeiculo/{{veiculos.id}}"><span><i class="fas fa-edit editar"></i></span></a>
+                    </td>
+                </tr>
 
-    <div class="pagination">
-        <span class="step-links">
-            
-            {% if veiculos.has_previous %}
-                <a href="?page={{ veiculos.previous_page_number }}"><li class="fas fa-arrow-left"></li></a>
-            {% endif %}
 
-            <span class="current">
-               Pagina {{veiculos.number}} de {{veiculos.paginator.num_pages}}
+                {% endfor %}
 
-            </span>
+            </tbody>
 
-            {% if veiculos.has_next %}
-            <a href="?page={{ veiculos.next_page_number }}"><li class="fas fa-arrow-right"></li></a>
-            {% endif %}
-        </span>
+        </table>
     </div>
 
-</div>
+
+
+        <div class="centro">
+            <span >
+
+                {% if veiculos.has_previous %}
+                <a href="?page={{ veiculos.previous_page_number }}">
+                    <li class="fas fa-arrow-left"></li>
+                </a>
+                {% endif %}
+
+                <span >
+                    Pagina {{veiculos.number}} de {{veiculos.paginator.num_pages}}
+
+                </span>
+
+                {% if veiculos.has_next %}
+                <a href="?page={{ veiculos.next_page_number }}">
+                    <li class="fas fa-arrow-right"></li>
+                </a>
+                {% endif %}
+            </span>
+        </div>
+
+    </div>
 
 </main>
 
